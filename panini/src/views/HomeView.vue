@@ -1,8 +1,7 @@
 <script setup>
+import Header from "../components/Header.vue";
 </script>
 
 <template>
-  <main>
-    <p>Olá</p>
-  </main>
+  <Header :isUserLoggedIn="false" active-route="Home"></Header>
 </template>
