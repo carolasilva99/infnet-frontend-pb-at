@@ -3,7 +3,5 @@ import Header from "../components/Header.vue";
 </script>
 
 <template>
-  <main>
-    <Header />
-  </main>
+  <Header :isUserLoggedIn="false" active-route="Home"></Header>
 </template>
