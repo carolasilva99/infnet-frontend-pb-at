@@ -34,8 +34,6 @@
             </template>
         </MDBCollapse>
     </MDBNavbar>
-    {{isUserLoggedIn}}
-    {{activeRoute}}
 </template>
 
 <script>
