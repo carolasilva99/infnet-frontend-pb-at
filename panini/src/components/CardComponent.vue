@@ -1,5 +1,5 @@
 <template>
-    <MDBCard>
+    <MDBCard class="h-100">
         <a v-mdb-ripple="{ color: 'light' }">
             <MDBCardImg :src="`/src/assets/${this.imagePath}`" top alt="..." />
         </a>
