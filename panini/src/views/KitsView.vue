@@ -4,13 +4,15 @@ import CardComponent from '../components/CardComponent.vue';
 
 <template id="kits-view">
     <h1 class="title m-5">Kits prontos</h1>
-    <MDBRow :cols="['1', 'md-3', 'lg-5', 'xg-7']" class="g-4 m-5">
+    <MDBRow :cols="['sm-2', 'md-3', 'lg-5', 'xg-7']" class="g-4 m-5">
         <div v-for="(kit, index) in this.kits" :key="index">
             <MDBCol>
                 <CardComponent
                     :imagePath="kit.imagePath"
                     :title="kit.name"
                     :tags="getTags(kit)"
+                    :description="kit.description"
+                    height="550px"
                 />
             </MDBCol>
         </div>
@@ -77,7 +79,7 @@ export default {
                     description: nutritionalInformation
                 });
             });
-            console.log(tags)
+
             return tags;
         }
     }
