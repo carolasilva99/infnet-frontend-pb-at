@@ -4,12 +4,12 @@
         <MDBNavbarToggler @click="collapse1 = !collapse1" target="#navbarSupportedContent"></MDBNavbarToggler>
         <MDBCollapse v-model="collapse1" id="navbarSupportedContent">
             <MDBNavbarNav class="mb-2 mb-lg-0" center>
-                <MDBNavbarItem :to="{ path: '/', hash: '#home' }" v-bind:active="activeRoute === 'Home'">Home</MDBNavbarItem>
+                <MDBNavbarItem :to="{ path: '/', hash: '#home' }" v-bind:active="activeRoute === 'home'">Home</MDBNavbarItem>
                 <MDBNavbarItem
                     :to="{ path: '/', hash: '#monte-seu-kit-view' }"
-                    v-bind:active="activeRoute === 'MonteSeuKit'"
+                    v-bind:active="activeRoute === 'monte-seu-kit-view'"
                 >Monte seu Kit</MDBNavbarItem>
-                <MDBNavbarItem :to="{ path: '/', hash: '#kits-view' }" v-bind:active="activeRoute === 'Kits'">Kits prontos</MDBNavbarItem>
+                <MDBNavbarItem :to="{ path: '/', hash: '#kits-view' }" v-bind:active="activeRoute === 'kits-view'">Kits prontos</MDBNavbarItem>
             </MDBNavbarNav>
             <MDBNavbarNav class="mb-2 mb-lg-0 mr-5 px-3">
                 <MDBNavbarItem to="#" class="me-3 me-lg-0">
@@ -84,14 +84,9 @@ export default {
             dropdown6,
         };
     },
-    props: {
-        activeRoute: {
-            type: String,
-            default: "Home",
-        },
-    },
     data: () => ({
         isUserLoggedIn: true,
+        activeRoute: 'Home'
     }),
     methods: {
         logout() {
@@ -100,6 +95,9 @@ export default {
         goTo(route) {
             this.$router.push(route);
         },
+        setActiveRoute() {
+            this.activeRoute = this.$route.hash.replace('#', '');
+        }
     },
 };
 </script>
