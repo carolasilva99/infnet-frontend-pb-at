@@ -1,14 +1,21 @@
 <template>
-    <MDBNavbar expand="lg" dark bg="dark" container>
+    <MDBNavbar expand="lg" dark bg="dark" container position="sticky">
         <MDBNavbarBrand href="#">Panini</MDBNavbarBrand>
         <MDBNavbarToggler @click="collapse1 = !collapse1" target="#navbarSupportedContent"></MDBNavbarToggler>
         <MDBCollapse v-model="collapse1" id="navbarSupportedContent">
             <MDBNavbarNav class="mb-2 mb-lg-0" center>
                 <MDBNavbarItem to="#" v-bind:active="activeRoute === 'Home'">Home</MDBNavbarItem>
-                <MDBNavbarItem href="#" v-bind:active="activeRoute === 'Paes'">Pães</MDBNavbarItem>
+                <MDBNavbarItem
+                    to="#monte-seu-kit-view"
+                    v-bind:active="activeRoute === 'MonteSeuKit'"
+                >Monte seu Kit</MDBNavbarItem>
                 <MDBNavbarItem href="#" v-bind:active="activeRoute === 'Kits'">Kits prontos</MDBNavbarItem>
             </MDBNavbarNav>
-
+            <MDBNavbarNav class="mb-2 mb-lg-0 mr-5 px-3">
+                <MDBNavbarItem to="#" class="me-3 me-lg-0">
+                    <MDBIcon icon="shopping-cart"></MDBIcon>
+                </MDBNavbarItem>
+            </MDBNavbarNav>
             <template v-if="isUserLoggedIn">
                 <MDBDropdown class="nav-item" v-model="dropdown6">
                     <MDBDropdownToggle tag="a" class="nav-link" @click="dropdown6 = !dropdown6">
@@ -28,7 +35,7 @@
                 </MDBDropdown>
             </template>
             <template v-else>
-                <MDBNavbarNav class="mb-2 mb-lg-0" right>
+                <MDBNavbarNav class="d-flex flex-row" right>
                     <MDBBtn size="sm" color="secondary">Login</MDBBtn>
                 </MDBNavbarNav>
             </template>
@@ -38,6 +45,7 @@
 
 <script>
 import {
+    MDBIcon,
     MDBBtn,
     MDBNavbar,
     MDBNavbarToggler,
@@ -48,11 +56,12 @@ import {
     MDBDropdown,
     MDBDropdownToggle,
     MDBDropdownMenu,
-    MDBDropdownItem
-} from 'mdb-vue-ui-kit';
-import { ref } from 'vue';
+    MDBDropdownItem,
+} from "mdb-vue-ui-kit";
+import { ref } from "vue";
 export default {
     components: {
+        MDBIcon,
         MDBBtn,
         MDBNavbar,
         MDBNavbarToggler,
@@ -63,7 +72,7 @@ export default {
         MDBDropdown,
         MDBDropdownToggle,
         MDBDropdownMenu,
-        MDBDropdownItem
+        MDBDropdownItem,
     },
     setup() {
         const collapse1 = ref(false);
@@ -72,22 +81,22 @@ export default {
         return {
             collapse1,
             dropdown1,
-            dropdown6
-        }
+            dropdown6,
+        };
     },
     props: {
         activeRoute: {
             type: String,
-            default: "Home"
-        }
+            default: "Home",
+        },
     },
     data: () => ({
-        isUserLoggedIn: true
+        isUserLoggedIn: true,
     }),
     methods: {
         logout() {
             this.isUserLoggedIn = false;
-        }
-    }
+        },
+    },
 };
 </script>
