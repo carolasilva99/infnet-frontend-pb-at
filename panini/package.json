@@ -9,6 +9,7 @@
     "start": "vue-cli-service serve --open"
   },
   "dependencies": {
+    "@vueform/multiselect": "^2.3.3",
     "mdb-vue-ui-kit": "^1.11.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
