@@ -183,7 +183,7 @@ export default {
                     description: nutritionalInformation
                 });
             });
-            console.log(tags)
+            
             return tags;
         }
     }
