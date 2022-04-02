@@ -2,8 +2,8 @@
 import CardComponent from '../components/CardComponent.vue';
 </script>
 
-<template id="monte-seu-kit-view">
-    <h1 class="title m-5">Monte seu kit</h1>
+<template>
+    <h1 id="monte-seu-kit-view" class="title m-5">Monte seu kit</h1>
     <MDBRow class="m-5">
         <MDBCol>
             <form>
@@ -183,7 +183,7 @@ export default {
                     description: nutritionalInformation
                 });
             });
-            console.log(tags)
+
             return tags;
         }
     }

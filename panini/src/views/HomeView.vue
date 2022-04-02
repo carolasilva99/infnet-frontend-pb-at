@@ -8,7 +8,7 @@ import KitsView from "./KitsView.vue";
   <HeaderComponent :isUserLoggedIn="false" active-route="Home" />
 
   <MDBContainer>
-    <MDBRow class="bg-light">
+    <MDBRow class="bg-light" id="home">
       <MDBCol class="text-info-col">
         <h1 class="h1-responsive font-weight-bold text-left">Panini</h1>
         <p>

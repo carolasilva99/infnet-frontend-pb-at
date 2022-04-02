@@ -1,1 +1,1 @@
-<template><RouterView />./components/HeaderComponent.vue</template>
+<template><RouterView /></template>
