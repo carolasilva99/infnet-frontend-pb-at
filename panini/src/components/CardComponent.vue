@@ -1,23 +1,24 @@
 <template>
-    <MDBCard class="h-100">
+    <MDBCard style="height: 400px">
         <a v-mdb-ripple="{ color: 'light' }">
             <MDBCardImg :src="`/src/assets/${this.imagePath}`" top alt="..." />
         </a>
         <MDBCardBody>
             <MDBCardTitle>{{ this.title }}</MDBCardTitle>
-            <MDBCardText >
-                <div class="tags" v-for="(tag, index) in this.tags" :key="index">
+            <MDBCardText>
+                <span class="tags" v-for="(tag, index) in this.tags" :key="index">
                     <MDBBadge :color="getBadgeColor(tag.type)" pill>{{ tag.description }}</MDBBadge>
-                </div>
-                
+                </span>
             </MDBCardText>
-            <MDBBtn outline="secondary">Adicionar ao Carrinho</MDBBtn>
         </MDBCardBody>
+        <MDBCardFooter>
+            <MDBBtn outline="secondary">Adicionar ao Carrinho</MDBBtn>
+        </MDBCardFooter>
     </MDBCard>
 </template>
 
 <script>
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImg, MDBBtn, mdbRipple, MDBBadge } from "mdb-vue-ui-kit";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImg, MDBBtn, mdbRipple, MDBBadge, MDBCardFooter } from "mdb-vue-ui-kit";
 export default {
     components: {
         MDBBadge,
@@ -26,7 +27,8 @@ export default {
         MDBCardTitle,
         MDBCardText,
         MDBCardImg,
-        MDBBtn
+        MDBBtn,
+        MDBCardFooter
     },
     directives: {
         mdbRipple
@@ -48,17 +50,15 @@ export default {
     },
     methods: {
         getBadgeColor(type) {
-            switch(type) {
+            switch (type) {
                 case 'Ingredient':
                     return 'primary';
-                case 'NutritionalValue':
+                case 'NutritionalInformation':
+                    return 'secondary';
+                case 'Category':
                     return 'success';
-                case 'Equipment':
-                    return 'warning';
-                case 'Tool':
-                    return 'danger';
                 default:
-                    return 'dark';
+                    return 'danger';
             }
         }
     }
