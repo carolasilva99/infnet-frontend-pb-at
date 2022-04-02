@@ -1,6 +1,7 @@
 <script setup>
 import HeaderComponent from "../components/HeaderComponent.vue";
 import MonteSeuKitView from "./MonteSeuKitView.vue";
+import KitsView from "./KitsView.vue";
 </script>
 
 <template>
@@ -31,6 +32,7 @@ import MonteSeuKitView from "./MonteSeuKitView.vue";
     </MDBRow>
   </MDBContainer>
   <MonteSeuKitView />
+  <KitsView />
 </template>
 
 <style>
