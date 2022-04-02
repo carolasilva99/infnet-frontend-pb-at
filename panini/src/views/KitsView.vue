@@ -2,8 +2,8 @@
 import CardComponent from '../components/CardComponent.vue';
 </script>
 
-<template id="kits-view">
-    <h1 class="title m-5">Kits prontos</h1>
+<template >
+    <h1 id="kits-view" class="title m-5">Kits prontos</h1>
     <MDBRow :cols="['sm-2', 'md-3', 'lg-5', 'xg-7']" class="g-4 m-5">
         <div v-for="(kit, index) in this.kits" :key="index">
             <MDBCol>
