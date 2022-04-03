@@ -12,7 +12,8 @@
     "@vueform/multiselect": "^2.3.3",
     "mdb-vue-ui-kit": "^1.11.0",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
