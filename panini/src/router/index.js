@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import MonteSeuKitViewVue from "../views/MonteSeuKitView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,14 @@ const router = createRouter({
       component: () => import("../views/InformacoesView.vue"),
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+  }
 });
 
 export default router;
