@@ -94,93 +94,10 @@ export default {
     MDBIcon,
     MDBCheckbox
   },
-  // setup() {
-    // const chckIngr1 = ref(false);
-    // const chckIngr2 = ref(false);
-    // const chckIngr3 = ref(false);
-    // const chckIngr4 = ref(false);
-    // const chckIngr5 = ref(false);
-    // const chckIngr6 = ref(false);
-    // const chckIngr7 = ref(false);
-    // const chckIngr8 = ref(false);
-    // const chckIngr9 = ref(false);
-    // const chckText1 = ref(false);
-    // const chckText2 = ref(false);
-    // const chckText3 = ref(false);
-    // const chckText4 = ref(false);
-    // const chckText5 = ref(false);
-    // const chckText6 = ref(false);
-    // const chckText7 = ref(false);
-    // const chckText8 = ref(false);
-    // const chckText9 = ref(false);
-    // return {
-      // nome,
-      // email,
-      // cep,
-      // cidade,
-      // uf,
-      // logradouro,
-      // numero,
-      // complemento,
-      // bairro,
-      // chckIngr1,
-      // chckIngr2,
-      // chckIngr3,
-      // chckIngr4,
-      // chckIngr5,
-      // chckIngr6,
-      // chckIngr7,
-      // chckIngr8,
-      // chckIngr9,
-      // chckText1,
-      // chckText2,
-      // chckText3,
-      // chckText4,
-      // chckText5,
-      // chckText6,
-      // chckText7,
-      // chckText8,
-      // chckText9,
-  //   };
-  // },
+
   data() {
     return {
-      // mensagemErro: "",
-      // flagErro: false,
-      // pessoa: {
-      //   id: null,
-      //   nome: "",
-      //   email: "",
-      //   cep: 0,
-      //   cidade: "",
-      //   uf: "",
-      //   logradouro: "",
-      //   numero: "",
-      //   complemento: "",
-      //   bairro: "",
-      //   ingredientes: {
-      //     farinhaComum: false,
-      //     farinhaIntegral: false,
-      //     farinhaIntegralEnriquecida: false,
-      //     acucarBranco: false,
-      //     acucarMascavo: false,
-      //     adocante: false,
-      //     queijos: false,
-      //     frutasCristalizadas: false,
-      //     ervasEspeciarias: false,
-      //   },
-      //   formas: {
-      //     pequenoIndividual: false,
-      //     medio4Pessoas: false,
-      //     grande8Pessoas: false,
-      //     redondo: false,
-      //     comprido: false,
-      //     quadrado: false,
-      //     corClara: false,
-      //     corMedia: false,
-      //     corEscura: false,
-      //   }
-      // }
+
     }
   },
   created() {
@@ -192,25 +109,7 @@ export default {
   methods: {
     ...mapActions(["alterarPessoa", "buscarPessoa"]),
     salvarInformacoes() {
-      // this.cadastroPessoa.ingredientes.farinhaComum = this.ingredientes.farinhaComum;
-      // this.cadastroPessoa.ingredientes.farinhaIntegral = this.ingredientes.farinhaIntegral;
-      // this.cadastroPessoa.ingredientes.farinhaIntegralEnriquecida = this.ingredientes.farinhaIntegralEnriquecida;
-      // this.cadastroPessoa.ingredientes.acucarBranco = this.ingredientes.acucarBranco;
-      // this.cadastroPessoa.ingredientes.acucarMascavo = this.ingredientes.acucarMascavo;
-      // this.cadastroPessoa.ingredientes.adocante = this.ingredientes.adocante;
-      // this.cadastroPessoa.ingredientes.queijos = this.ingredientes.queijos;
-      // this.cadastroPessoa.ingredientes.frutasCristalizadas = this.ingredientes.frutasCristalizadas;
-      // this.cadastroPessoa.ingredientes.ervasEspeciarias = this.ingredientes.ervasEspeciarias;
 
-      // this.cadastroPessoa.formas.pequenoIndividual = this.formas.pequenoIndividual;
-      // this.cadastroPessoa.formas.medio4Pessoas = this.formas.medio4Pessoas;
-      // this.cadastroPessoa.formas.grande8Pessoas = this.formas.grande8Pessoas;
-      // this.cadastroPessoa.formas.redondo = this.formas.redondo;
-      // this.cadastroPessoa.formas.comprido = this.formas.comprido;
-      // this.cadastroPessoa.formas.quadrado = this.formas.quadrado;
-      // this.cadastroPessoa.formas.corClara = this.formas.corClara;
-      // this.cadastroPessoa.formas.corMedia = this.formas.corMedia;
-      // this.cadastroPessoa.formas.corEscura = this.formas.corEscura;
       this.alterarPessoa(this.cadastroPessoa);
       this.$router.push({
         name: "home",
