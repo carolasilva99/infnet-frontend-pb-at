@@ -19,19 +19,19 @@ import HeaderComponent from '../components/HeaderComponent.vue';
         <br />
         <MDBRow>
           <MDBCol md="3">
-            <MDBInput label="CEP" v-model="cadastroPessoa.cep" type="number" />
+            <MDBInput label="CEP" v-model="cadastroPessoa.cep" type="text" @change="buscarCep()" />
           </MDBCol>
           <MDBCol md="7">
-            <MDBInput label="Cidade" v-model="cadastroPessoa.cidade" type="text" />
+            <MDBInput label="Cidade" v-model="cadastroPessoa.cidade" type="text" disabled />
           </MDBCol>
           <MDBCol md="2">
-            <MDBInput label="UF" v-model="cadastroPessoa.uf" type="text" />
+            <MDBInput label="UF" v-model="cadastroPessoa.uf" type="text" disabled />
           </MDBCol>
         </MDBRow>
         <br />
         <MDBRow>
           <MDBCol md="8">
-            <MDBInput label="Logradouro" v-model="cadastroPessoa.logradouro" type="text" />
+            <MDBInput label="Logradouro" v-model="cadastroPessoa.logradouro" type="text" disabled />
           </MDBCol>
           <MDBCol md="4">
             <MDBInput label="Número" v-model="cadastroPessoa.numero" type="text" />
@@ -43,7 +43,7 @@ import HeaderComponent from '../components/HeaderComponent.vue';
             <MDBInput label="Complemento" v-model="cadastroPessoa.complemento" type="text" />
           </MDBCol>
           <MDBCol md="6">
-            <MDBInput label="Bairro" v-model="cadastroPessoa.bairro" type="text" />
+            <MDBInput label="Bairro" v-model="cadastroPessoa.bairro" type="text" disabled/>
           </MDBCol>
         </MDBRow>
         <br />
@@ -55,11 +55,6 @@ import HeaderComponent from '../components/HeaderComponent.vue';
           Cancelar cadastro
           <MDBIcon icon="chevron-right" />
         </MDBBtn>
-        <div v-show="flagErro">
-          <br />
-          {{ flagErro }}
-          <div class="alert alert-danger">*** {{ mensagemErro }} ***</div>
-        </div>
       </MDBCol>
       <MDBCol class="landing-page-image-col d-none d-sm-block d-sm-none d-md-block">
         <img
@@ -90,6 +85,7 @@ h1 {
 import { MDBCol, MDBRow, MDBContainer, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-vue-ui-kit';
 import { ref } from 'vue';
 import { mapActions, mapGetters } from "vuex";
+import CepService from '../services/CepService';
 
 export default {
   name: "salvarCadastro",
@@ -106,11 +102,11 @@ export default {
   setup() {
     const nome = ref('');
     const email = ref('');
-    const cep = ref(0);
+    const cep = ref('');
     const cidade = ref('');
     const uf = ref('');
-    const logradouro = ref(0);
-    const numero = ref(0);
+    const logradouro = ref('');
+    const numero = ref('');
     const complemento = ref('');
     const bairro = ref('');
     return {
@@ -133,7 +129,7 @@ export default {
         id: null,
         nome: "",
         email: "",
-        cep: 0,
+        cep: "",
         cidade: "",
         uf: "",
         logradouro: "",
@@ -214,9 +210,18 @@ export default {
           name: "informacoes",
           params: { id: dados.id }
         });
-      } else {
+      }
+      else if (this.cadastroPessoa.cep === '') {
+        this.mensagemErro = "Preencha o campo CEP com um valor válido!";
+        this.flagErro = true;
+        this.$toast.error(this.mensagemErro);
+        setTimeout(this.$toast.clear, 3000)
+      }
+      else {
         this.mensagemErro = "Todos os campos devem ser preenchidos...";
         this.flagErro = true;
+        this.$toast.error(this.mensagemErro);
+        setTimeout(this.$toast.clear, 3000)
       }
     },
     criticarCampos() {
@@ -232,6 +237,23 @@ export default {
         name: "home",
       });
     },
+    buscarCep() {
+      let result = CepService.buscarCep(this.cadastroPessoa.cep);
+      result
+        .then(resp => {
+          this.cadastroPessoa.bairro = resp.data.bairro;
+          this.cadastroPessoa.cidade = resp.data.localidade;
+          this.cadastroPessoa.logradouro = resp.data.logradouro;
+          this.cadastroPessoa.uf = resp.data.uf;
+        })
+        .catch(error => {
+          this.cadastroPessoa.cep = '';
+          this.mensagemErro = "CEP não encontrado!";
+          this.flagErro = true;
+          this.$toast.error(this.mensagemErro);
+          setTimeout(this.$toast.clear, 5000)
+        });
+    }
   },
 };
 </script>
