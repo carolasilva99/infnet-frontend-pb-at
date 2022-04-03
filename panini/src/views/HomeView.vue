@@ -14,7 +14,7 @@ import Header from "../components/Header.vue";
         <p>
           A melhor plataforma para receber pães de todos os tipos da sua casa! Faça seu cadastro e conheça mais sobre nós!
         </p>
-        <MDBBtn color="secondary">Faça seu cadastro <MDBIcon icon="chevron-right" /></MDBBtn>
+        <MDBBtn color="secondary" @click="cadastro()">Faça seu cadastro <MDBIcon icon="chevron-right" /></MDBBtn>
       </MDBCol>
       <MDBCol class="landing-page-image-col d-none d-sm-block d-sm-none d-md-block">
         <img src="../assets/landing-page-image.jpg" alt="Imagem de padeiro" class="landing-page-image">
@@ -49,5 +49,12 @@ h1 {
       MDBBtn,
       MDBIcon 
     },
+  methods: {
+    cadastro() {
+      this.$router.push({
+        name: "cadastro",
+      });
+    },
+  },
   };
 </script>
