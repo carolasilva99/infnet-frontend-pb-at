@@ -15,7 +15,7 @@ import KitsView from "./KitsView.vue";
           A melhor plataforma para receber pães de todos os tipos da sua casa!
           Faça seu cadastro e conheça mais sobre nós!
         </p>
-        <MDBBtn color="secondary">
+        <MDBBtn color="secondary" @click="cadastro()">
           Faça seu cadastro
           <MDBIcon icon="chevron-right" />
         </MDBBtn>

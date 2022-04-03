@@ -1,9 +1,9 @@
 <script setup>
-import Header from "../components/Header.vue";
+import HeaderComponent from '../components/HeaderComponent.vue';
 </script>
 
 <template>
-  <Header :isUserLoggedIn="false" active-route="Home"></Header>
+  <HeaderComponent :isUserLoggedIn="false" active-route="Home"></HeaderComponent>
 
   <MDBContainer>
     <MDBRow class="bg-light">
