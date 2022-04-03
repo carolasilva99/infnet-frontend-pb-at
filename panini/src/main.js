@@ -3,8 +3,10 @@ import { createApp } from "vue";
 import { createStore} from 'vuex';
 import App from "./App.vue";
 import router from "./router";
+import Toaster from '@meforma/vue-toaster';
 
-const app = createApp(App);
+
+const app = createApp(App).use(Toaster);
 
 const dados = createStore({
     state:{
