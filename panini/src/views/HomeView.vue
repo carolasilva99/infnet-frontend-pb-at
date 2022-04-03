@@ -15,18 +15,12 @@ import KitsView from "./KitsView.vue";
           A melhor plataforma para receber pães de todos os tipos da sua casa!
           Faça seu cadastro e conheça mais sobre nós!
         </p>
-<<<<<<< HEAD
-        <MDBBtn color="secondary" @click="cadastro()">Faça seu cadastro <MDBIcon icon="chevron-right" /></MDBBtn>
-=======
         <MDBBtn color="secondary">
           Faça seu cadastro
           <MDBIcon icon="chevron-right" />
         </MDBBtn>
->>>>>>> 5718ee7a92b914f89bf6b0c123a1d9835715d4eb
       </MDBCol>
-      <MDBCol
-        class="landing-page-image-col d-none d-sm-block d-sm-none d-md-block"
-      >
+      <MDBCol class="landing-page-image-col d-none d-sm-block d-sm-none d-md-block">
         <img
           src="../assets/landing-page-image.jpg"
           alt="Imagem de padeiro"
@@ -57,15 +51,14 @@ h1 {
 <script>
 import { MDBCol, MDBRow, MDBContainer, MDBBtn, MDBIcon } from "mdb-vue-ui-kit";
 
-<<<<<<< HEAD
-  export default {
-    components: {
-      MDBCol,
-      MDBRow,
-      MDBContainer,
-      MDBBtn,
-      MDBIcon 
-    },
+export default {
+  components: {
+    MDBCol,
+    MDBRow,
+    MDBContainer,
+    MDBBtn,
+    MDBIcon
+  },
   methods: {
     cadastro() {
       this.$router.push({
@@ -73,16 +66,5 @@ import { MDBCol, MDBRow, MDBContainer, MDBBtn, MDBIcon } from "mdb-vue-ui-kit";
       });
     },
   },
-  };
-=======
-export default {
-  components: {
-    MDBCol,
-    MDBRow,
-    MDBContainer,
-    MDBBtn,
-    MDBIcon,
-  },
 };
->>>>>>> 5718ee7a92b914f89bf6b0c123a1d9835715d4eb
 </script>
